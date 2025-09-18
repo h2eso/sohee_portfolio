@@ -1,0 +1,549 @@
+:root {
+    --bg: #e8dacf;
+    --link-color: #e2e2dc;
+    --overlay-bg: #0a0a0a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100vw;
+    /* height: 100vh; */
+    background-color: var(--bg);
+
+    /* overflow: hidden; */
+}
+
+main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+    font-size: 13.5px;
+    font-weight: 500;
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    padding-top: 20px; /* 네비게이션 공간 확보 */
+}
+
+.items {
+    width: 100%;
+    display: flex;
+}
+
+.items-col {
+    flex: 1;
+    display: flex;
+}
+
+.item {
+    position: relative;
+    top: 10vh;
+    height: 350px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px; /* 좌우 마진 추가 */
+}
+
+.item-copy {
+    padding: 0.5em;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px; /* 텍스트와 이미지 간격 */
+}
+
+.item-copy-wrapper {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    margin-bottom: 5px;
+}
+
+.item-copy-wrapper p {
+    position: relative;
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    font-size: 14px; /* 13.5px에서 14px로 증가 */
+    line-height: 120%; /* 100%에서 120%로 증가 */
+    color: #333; /* 색상 명시 */
+}
+
+.item-side .item-img {
+    flex: 1;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    border-radius: 8px; /* 모서리 둥글게 */
+}
+
+.item-side .item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.items-col:nth-child(2) {
+    flex: 0 0 350px;
+    display: flex;
+    justify-content: center;
+    margin: 0 20px;
+}
+
+.item-main {
+    position: relative;
+    top: 10vh;
+    width: 350px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 12px; /* 모서리 둥글게 */
+}
+
+.item-main .item-img {
+    overflow: hidden;
+    height: 100%;
+}
+
+.item-main .item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지 비율 유지 */
+    transform: scale(0.5);
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+}
+
+.header {
+    position: absolute;
+    bottom: 30%; /* 35%에서 30%로 조정 */
+    transform-origin: center center;
+    width: 100%;
+    display: flex;
+    z-index: 10;
+    justify-content: space-between;
+    font-family: 'SoakUpTheSun', sans-serif;
+    padding: 0 5vw; /* 양쪽 패딩으로 화면 안에 위치 */
+}
+
+.header-item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    transform: scale(0.25);
+}
+
+.header-item-1 {
+    letter-spacing: 1vw;
+    /* left 값 제거, justify-content로 처리 */
+}
+
+.header-item-2 {
+    letter-spacing: 1.8vw; /* 글자 간격을 좁혀서 PROJECTS가 잘리지 않게 */
+}
+
+.letter {
+    flex: 1;
+    font-size: 16vw;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    color: #333;
+}
+
+.letter-wrapper {
+    position: relative;
+}
+
+@media (max-width: 1200px) {
+    .item {
+        height: 320px;
+        margin: 0 5px;
+    }
+
+    .item-main {
+        width: 320px;
+        height: 450px;
+    }
+
+    .items-col:nth-child(2) {
+        flex: 0 0 320px;
+        margin: 0 15px;
+    }
+}
+
+@media (max-width: 900px) {
+    .item-side {
+        display: none;
+    }
+
+    .container {
+        padding-top: 70px;
+    }
+
+    .header {
+        bottom: 35%;
+        padding: 0 3vw;
+    }
+
+    .header-item {
+        transform: scale(0.4);
+    }
+
+    .header-item-2 {
+        letter-spacing: -0.3vw;
+    }
+
+    .item-main {
+        width: 280px;
+        height: 400px;
+    }
+
+    .items-col:nth-child(2) {
+        flex: 0 0 280px;
+        margin: 0 10px;
+    }
+
+    .letter {
+        font-size: 14vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding-top: 60px;
+    }
+
+    .item-main {
+        width: 250px;
+        height: 350px;
+    }
+
+    .items-col:nth-child(2) {
+        flex: 0 0 250px;
+    }
+
+    .header {
+        padding: 0 2vw;
+    }
+
+    .header-item {
+        transform: scale(0.3);
+    }
+
+    .header-item-2 {
+        letter-spacing: -0.2vw;
+    }
+
+    .letter {
+        font-size: 12vw;
+    }
+}
+/* 이미지 클릭 효과 및 상세보기 모달 */
+.item-img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 10; /* z-index 추가 */
+    pointer-events: auto; /* 클릭 이벤트 활성화 */
+}
+
+.item-img:hover {
+    transform: scale(1.02);
+}
+
+.item-img img {
+    cursor: pointer;
+    pointer-events: auto; /* 이미지 클릭 활성화 */
+    display: block; /* block으로 변경 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 헤더가 이미지를 가리지 않도록 z-index 조정 */
+.header {
+    position: absolute;
+    bottom: 30%;
+    transform-origin: center center;
+    width: 100%;
+    display: flex;
+    z-index: 5; /* 이미지보다 낮은 z-index */
+    justify-content: space-between;
+    padding: 0 5vw;
+    pointer-events: none; /* 헤더는 클릭 이벤트를 방해하지 않도록 */
+}
+
+.header .letter {
+    pointer-events: none; /* 글자들도 클릭 이벤트 방해하지 않도록 */
+}
+
+/* 모달 스타일 */
+.project-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.project-modal.active {
+    display: flex !important;
+    opacity: 1;
+}
+
+.modal-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+
+.modal-image-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+    z-index: 1; /* 이미지 섹션 z-index */
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.1);
+}
+
+.modal-info-section {
+    flex: 1;
+    background: var(--bg, #f5f5f5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    position: relative;
+    z-index: 10; /* 정보 섹션 z-index를 높게 설정 */
+}
+
+.modal-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 2px solid #333;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    transition: all 0.3s ease;
+    z-index: 100; /* 닫기 버튼을 가장 위에 */
+}
+
+.modal-close:hover {
+    background: #333;
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.project-category {
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 50;
+}
+
+.project-title {
+    font-size: 3rem;
+    font-weight: 300;
+    color: #333;
+    margin-bottom: 10px; /* margin-bottom 증가 */
+    line-height: 1; /* line-height를 줄여서 글자가 잘리지 않게 */
+    position: relative;
+    z-index: 50; /* z-index 추가 */
+    padding: 0; /* 위아래 패딩 추가로 여유 공간 확보 */
+    overflow: visible; /* overflow를 visible로 변경 */
+    /* 폰트 렌더링 최적화 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* 글자가 잘리는 것을 방지하는 속성들 */
+    white-space: nowrap; /* 텍스트를 한 줄로 유지 (필요에 따라 제거 가능) */
+    text-overflow: visible; /* 텍스트 오버플로우 처리 */
+}
+
+.project-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 500px;
+    position: relative;
+    z-index: 50;
+}
+
+.project-details {
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 50;
+}
+
+.project-details h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 50;
+}
+
+.project-details ul {
+    list-style: none;
+    padding: 0;
+    position: relative;
+    z-index: 50;
+}
+
+.project-details li {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+    z-index: 50;
+}
+
+.project-details li:before {
+    content: '•';
+    color: #333;
+    position: absolute;
+    left: 0;
+}
+
+.project-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 50;
+}
+
+.project-btn {
+    padding: 15px 30px;
+    border: 2px solid #333;
+    background: transparent;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 50;
+}
+
+.project-btn:hover {
+    background: #333;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-btn.primary {
+    background: #333;
+    color: #fff;
+}
+
+.project-btn.primary:hover {
+    background: #555;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+    .modal-content {
+        flex-direction: column;
+    }
+
+    .modal-image-section,
+    .modal-info-section {
+        flex: none;
+        height: 50vh;
+    }
+
+    .modal-image-section {
+        padding: 20px;
+    }
+
+    .modal-info-section {
+        padding: 40px 30px;
+        overflow-y: auto;
+    }
+
+    .project-title {
+        font-size: 2.5rem;
+        white-space: normal; /* 모바일에서는 줄바꿈 허용 */
+        line-height: 1.1;
+        padding: 15px 0; /* 모바일에서 패딩 증가 */
+    }
+
+    .project-description {
+        font-size: 16px;
+    }
+
+    .modal-close {
+        top: 20px;
+        right: 20px;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+.menu svg,
+.menu path {
+    pointer-events: none;
+}
+
+.item-img {
+    position: relative;
+    z-index: 10;
+}

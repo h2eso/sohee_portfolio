@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lee so hee project</title>
+        <link rel="stylesheet" href="./assets/reset.css" />
+        <link rel="stylesheet" href="./css/projects_visul.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="items">
+                <div class="items-col">
+                    <div class="item item-side">
+                        <div class="item-copy">
+                            <div class="item-copy-wrapper">
+                                <p>Walk On APP</p>
+                            </div>
+                            <div class="item-copy-wrapper">
+                                <p>: Renewal project</p>
+                            </div>
+                        </div>
+                        <div class="item-img" data-project="walkon-renewal">
+                            <img src="./assets/imgs/img-1.jpg" alt="Walk On APP Renewal" />
+                        </div>
+                    </div>
+
+                    <div class="item item-side">
+                        <div class="item-copy">
+                            <div class="item-copy-wrapper">
+                                <p>Nintendo Renewal</p>
+                            </div>
+                            <div class="item-copy-wrapper">
+                                <p>: Interaction Design</p>
+                            </div>
+                        </div>
+                        <div class="item-img" data-project="nintendo-experience">
+                            <img src="./assets/imgs/img-2.jpg" alt="Nintendo Design" />
+                        </div>
+                    </div>
+
+                    <div class="item item-side">
+                        <div class="item-copy">
+                            <div class="item-copy-wrapper">
+                                <p>Casetify Renewal</p>
+                            </div>
+                            <div class="item-copy-wrapper">
+                                <p>: E-commerce UX/UI</p>
+                            </div>
+                        </div>
+                        <div class="item-img" data-project="casetify-renewal">
+                            <img src="./assets/imgs/img-3.jpg" alt="Casetify Website Renewal" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="items-col">
+                    <div class="item-main">
+                        <div class="item-copy">
+                            <div class="item-copy-wrapper">
+                                <p>Sound Goods Platform</p>
+                            </div>
+                            <div class="item-copy-wrapper">
+                                <p>: Music OTT + Goods Shop</p>
+                            </div>
+                        </div>
+                        <div class="item-img" data-project="soundgoods-app">
+                            <img src="./assets/imgs/img-4.jpg" alt="Sound Goods Platform" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="items-col">
+                    <div class="item item-side">
+                        <div class="item-copy">
+                            <div class="item-copy-wrapper">
+                                <p>Snoopy Poster</p>
+                            </div>
+                            <div class="item-copy-wrapper">
+                                <p>: Personal UI Design</p>
+                            </div>
+                        </div>
+                        <div class="item-img" data-project="snoopy-page">
+                            <img src="./assets/imgs/img-3.jpg" alt="Snoopy Poster Page" />
+                        </div>
+                    </div>
+
+                    <div class="item item-side">
+                        <div class="item-copy">
+                            <div class="item-copy-wrapper">
+                                <p>McDelivery UX/UI</p>
+                            </div>
+                            <div class="item-copy-wrapper">
+                                <p>: Service Redesign</p>
+                            </div>
+                        </div>
+                        <div class="item-img" data-project="mcdelivery-ui">
+                            <img src="./assets/imgs/img-1.jpg" alt="McDelivery UX/UI Renewal" />
+                        </div>
+                    </div>
+
+                    <div class="item item-side">
+                        <div class="item-copy">
+                            <div class="item-copy-wrapper">
+                                <p>추가 프로젝트</p>
+                            </div>
+                            <div class="item-copy-wrapper">
+                                <p>:Coming Soon</p>
+                            </div>
+                        </div>
+                        <div class="item-img" data-project="walkon-renewal">
+                            <img src="./assets/imgs/img-2.jpg" alt="추가 프로젝트" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header">
+                <div class="header-item header-item-1">
+                    <div class="letter"><div class="letter-wrapper">M</div></div>
+                    <div class="letter"><div class="letter-wrapper">Y</div></div>
+                </div>
+                <div class="header-item header-item-2">
+                    <div class="letter"><div class="letter-wrapper">P</div></div>
+                    <div class="letter"><div class="letter-wrapper">R</div></div>
+                    <div class="letter"><div class="letter-wrapper">O</div></div>
+                    <div class="letter"><div class="letter-wrapper">J</div></div>
+                    <div class="letter"><div class="letter-wrapper">E</div></div>
+                    <div class="letter"><div class="letter-wrapper">C</div></div>
+                    <div class="letter"><div class="letter-wrapper">T</div></div>
+                    <div class="letter"><div class="letter-wrapper">S</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 프로젝트 상세보기 모달 -->
+        <div class="project-modal" id="projectModal">
+            <div class="modal-content">
+                <div class="modal-image-section">
+                    <img src="" alt="" class="modal-image" id="modalImage" />
+                </div>
+                <div class="modal-info-section">
+                    <button class="modal-close" id="modalClose">&times;</button>
+                    <div class="project-category" id="modalCategory">Frontend Development</div>
+                    <h2 class="project-title" id="modalTitle">프로젝트 제목</h2>
+                    <p class="project-description" id="modalDescription">
+                        프로젝트에 대한 상세한 설명이 여기에 들어갑니다.
+                    </p>
+                    <div class="project-details">
+                        <h4>기여도 50 / 팀플</h4>
+                        <h4>사용 스텍</h4>
+                        <ul id="modalTechs">
+                            <li>React</li>
+                            <li>프로토타입</li>
+                            <li>기획서</li>
+                        </ul>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-btn primary" id="modalLiveLink"> Live Demo → </a>
+                        <a href="#" class="project-btn" id="modalCodeLink"> View Code </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--  -->
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/ScrollTrigger.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/ScrollToPlugin.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/MotionPathPlugin.min.js"></script>
+        <script src="https://unpkg.com/lenis@1.1.19/dist/lenis.min.js"></script>
+        <script src="./plugins/splitText.js"></script>
+
+        <script type="module" src="js/projects_visul.js"></script>
+    </body>
+</html>
