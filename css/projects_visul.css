@@ -133,7 +133,7 @@ a {
     display: flex;
     z-index: 10;
     justify-content: space-between;
-    font-family: 'SoakUpTheSun', sans-serif;
+    /* font-family: 'SoakUpTheSun', sans-serif; */
     padding: 0 5vw; /* 양쪽 패딩으로 화면 안에 위치 */
 }
 

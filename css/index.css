@@ -1,0 +1,1905 @@
+/* ================== CSS 변수 ================== */
+:root {
+    --bg: #ffff;
+    --link-color: #e2e2dc;
+    --overlay-bg: #0a0a0a;
+    --dark: #000;
+    --light: #f9f4eb;
+    --light2: #f0ece5;
+    --accent-1: #ffffff;
+    --accent-2: #ffffff;
+    --accent-3: #ffffff;
+}
+
+/* ================== 기본 리셋 ================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* 각 섹션에 상단 여백 추가로 이전 컨텐츠 겹침 방지 */
+.con1, #con2, .con3, .con4, .con5 {
+    margin-top: 80px; /* 헤더 높이만큼 여백 */
+}
+
+/* 특히 문제되는 섹션들에 더 강력한 분리 */
+.profile, .spotlight {
+    position: relative;
+    z-index: 2;
+    background: #fff; /* 배경색 명시적으로 지정 */
+    margin-top: 60px;
+}
+
+/* con2 내부 섹션들도 분리 */
+#con2 .spotlight,
+#con2 .profile {
+    background: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+html,
+body {
+    width: 100vw;
+    font-family: 'SoakUpTheSun', sans-serif;
+}
+
+/* ================== 공통 애니메이션 ================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+    50% {
+        transform: translate(-50%, -55%);
+    }
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes morph {
+    0% {
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+    50% {
+        border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+    }
+    100% {
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+}
+@keyframes gentleBounce {
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-3px);
+        opacity: 1;
+    }
+}
+
+@keyframes subtleShimmer {
+    0% {
+        opacity: 0.9;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.9;
+    }
+}
+
+/* ================== 메인 섹션 ================== */
+
+#visul {
+    width: 100vw;
+    height: 100vh;
+  
+    font-family: 'GyeonggiBatang', serif;
+    color: #000;
+    line-height: 1.5;
+    position: relative;
+        background-image: url('/assets/imgs/visul_bg.jpg');
+}
+
+
+/* ===== 상단 네비게이션  ===== */
+/* 헤더 스타일 */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2em 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    padding: 1.2em 4em;
+    background-color: rgba(255, 255, 255, 0.98);
+}
+
+/* 로고 스타일  */
+.site-logo {
+    display: flex;
+    gap: 1em;
+    align-items: flex-end;
+    cursor: pointer;
+}
+
+.site-logo h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1;
+    font-family: 'GyeonggiBatang', serif;
+    color: #222;
+    transition: all 0.3s ease;
+}
+
+.site-logo .word:last-child h1 {
+    font-size: 1.5rem;
+    color: #666;
+}
+
+/* 네비게이션 스타일 */
+.nav {
+    display: flex;
+    gap: 2em;
+}
+
+.nav .nav-item {
+    position: relative;
+    cursor: pointer;
+}
+
+.nav .nav-item p {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: 'GyeonggiBatang', serif;
+    color: #444;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+    position: relative;
+}
+
+/* ===== 메인 타이틀 ===== */
+
+/* ===== Site Info 컨테이너 ===== */
+.hero-content .site-info {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== Designer SVG 중앙 상단 배치 ===== */
+.designer-svg {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: block;
+    overflow: visible;
+    position: absolute;
+    top: 34%;
+    left: 48%;
+    transform: translateX(-50%);
+}
+
+.designer-outline {
+    font-family: 'GyeonggiBatang', serif;
+    font-size: clamp(100px, 25vw, 300px);
+    font-weight: 700;
+    fill: transparent;
+    stroke: #1a2335;
+    stroke-width: 3;
+    stroke-dasharray: 2000; 
+    stroke-dashoffset: 2000;
+    animation: drawLine 5s ease forwards;
+    text-anchor: middle;
+}
+
+@keyframes drawLine {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* ===== Portfolio 텍스트 - Designer 아래 ===== */
+.hero-content .site-info .row:first-child .col strong {
+    display: inline-block;
+    font-size: 20rem;
+    font-family: 'SoakUpTheSun', serif;
+    color: #1a2335;
+    position: absolute;
+    top: 20%;
+    left: 60%;
+    z-index: 2;
+}
+
+/* ===== 프로필 이미지 - 하단 중앙 배치 ===== */
+.team-img {
+    position: absolute;
+    bottom: 0;
+    left: 60%;
+    transform: translateX(-50%);
+    width: clamp(800px, 60vw, 1000px);
+    height: auto;
+    z-index: 1;
+}
+
+/* ===== 좌측 하단 정보 (두 번째 row만 선택) ===== */
+.hero-content .site-info .row:nth-child(2) {
+    position: absolute;
+    bottom: 8%;
+    left: 18%;
+    z-index: 3;
+}
+
+/* ===== 직무 정보 ===== */
+.hero-content .site-info .row:nth-child(2) .address {
+    margin-bottom: 2rem;
+    
+}
+
+.hero-content .site-info .row:nth-child(2) .address p {
+  font-size: 2rem;
+   font-family: 'GyeonggiBatang', serif;
+    text-transform: uppercase;
+    color: #1a2335;
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+/* ===== 연락처 정보 ===== */
+
+.hero-content .site-info .row:nth-child(2) .socials p {
+    font-size: 1.2rem;
+    font-family: 'GyeonggiBatang', serif;
+    color: #303030;
+    margin: 0.3rem 0;
+    line-height: 1.6;
+}
+
+/* ================== CON1 섹션 ================== */
+.con1 {
+    position: relative;
+    width: 100%;
+}
+
+.con1-header {
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+    transform: none;
+    will-change: auto;
+    padding-bottom: 20px;
+}
+
+.con1-header h2 {
+    display: block;
+    margin-bottom: 2rem;
+    font-family: 'SoakUpTheSun', sans-serif;
+    font-size: clamp(4rem, 10vw, 6rem);
+    color: #6b5b47;
+}
+
+.con1-header strong {
+    font-family: 'GyeonggiBatang', serif;
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: 500;
+    color: #6b5b47;
+}
+/* ================== 카드 시스템 ================== */
+.cards {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.cards-container {
+    position: relative;
+    width: 75%;
+    height: 60%;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.card {
+    flex: 1;
+    position: relative;
+    aspect-ratio: 5/7;
+    perspective: 800px;
+    height: 100px;
+}
+
+.card-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 440px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    animation: floating 2s infinite ease-in-out;
+}
+
+.card:hover .card-wrapper {
+    transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+#card-1 .card-wrapper {
+    animation-delay: 0;
+}
+#card-2 .card-wrapper {
+    animation-delay: 0.25s;
+}
+#card-3 .card-wrapper {
+    animation-delay: 0.5s;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    backface-visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.flip-card-front {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+#card-1 .flip-card-front {
+    background-color: var(--accent-1);
+}
+#card-2 .flip-card-front {
+    background-color: var(--accent-2);
+}
+#card-3 .flip-card-front {
+    background-color: var(--accent-3);
+}
+
+.flip-card-back {
+    background: #fff;
+    transform: rotateY(180deg);
+
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.card-illustration img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.card-back-icon img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-copy {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.card-copy p {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    background-color: var(--light2);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    margin: 0;
+}
+
+/* 대신 JS가 완전히 제어할 수 있도록 */
+.cards #card-1,
+.cards #card-2,
+.cards #card-3 {
+    opacity: 0; /* 초기 opacity만 설정 */
+}
+
+/* ================== CON1-1 섹션 ================== */
+.con1-1 {
+    position: relative;
+    background: linear-gradient(
+        135deg,
+        #1a1a2e 0%,
+        #16213e 50%,
+        #0f3460 100%
+    ); /* 어두운 배경 복원 */
+
+    padding: 4rem 2rem; /* 패딩 줄여서 거리 축소 */
+    height: 40vh; /* 높이 조정 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    margin-top: -50px; /* 위쪽으로 당겨서 거리 줄임 */
+    text-align: center;
+}
+
+/* starfield 다시 표시 */
+.starfield {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* 신비로운 배경 효과 복원 */
+.con1-1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 30%, rgba(139, 117, 93, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 117, 93, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(232, 218, 207, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 별자리 패턴 배경 복원 */
+.con1-1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 25% 25%, #e8dacf 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, #8b735d 1px, transparent 1px),
+        radial-gradient(circle at 50% 10%, #e8dacf 0.5px, transparent 0.5px),
+        radial-gradient(circle at 10% 60%, #8b735d 0.5px, transparent 0.5px),
+        radial-gradient(circle at 90% 30%, #e8dacf 1px, transparent 1px);
+    background-size: 200px 200px, 150px 150px, 300px 300px, 250px 250px, 180px 180px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 1;
+    animation: twinkle 8s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.1;
+    }
+}
+
+/* 메인 컨텐츠 - 거리 줄이기 */
+.strengths-description {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 카드 크기 조정 */
+    gap: 2rem;
+    align-items: start;
+    justify-items: center;
+    margin-top: -20px; /* 위로 당기기 */
+}
+
+/* 각 강점 아이템 - 어두운 배경에 맞게 수정 */
+.strength-item {
+    position: relative;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: rgba(232, 218, 207, 0.05);
+    border: 1px solid rgba(139, 117, 93, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: all 0.5s ease;
+    overflow: hidden;
+    min-height: 250px; /* 높이 줄임 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 350px;
+    width: 100%;
+}
+
+/* 호버 효과  */
+.strength-item:hover {
+    background: rgba(232, 218, 207, 0.08);
+    border-color: rgba(139, 117, 93, 0.4);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.strength-item:hover::after {
+    opacity: 0.3;
+}
+
+/* 신비로운 테두리 효과 복원 */
+.strength-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(139, 117, 93, 0.1),
+        transparent,
+        rgba(232, 218, 207, 0.1),
+        transparent
+    );
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.strength-item:hover::before {
+    opacity: 1;
+}
+
+/* 키워드 스타일링 - 별 배경에 맞게 */
+.strength-keyword {
+    font-family: 'GyeonggiBatang', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #e8dacf 0%, #8b735d 50%, #6b5b47 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    text-shadow: 0 0 30px rgba(139, 117, 93, 0.3);
+    letter-spacing: 1px;
+}
+
+/* 키워드 아래 장식선 */
+.strength-keyword::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(139, 117, 93, 0.6),
+        rgba(232, 218, 207, 0.8),
+        rgba(139, 117, 93, 0.6),
+        transparent
+    );
+    border-radius: 1px;
+}
+
+/* 설명 텍스트 - 별 배경에 맞게 */
+.strength-item p {
+    font-family: 'GyeonggiBatang', serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(232, 218, 207, 0.9);
+    font-weight: 200;
+    letter-spacing: 0.3px;
+    margin: 4px;
+    text-align: center;
+}
+
+/* 등장 애니메이션 */
+.strength-item {
+    opacity: 0;
+    transform: translateY(20px); /* 이동 거리 줄임 */
+    animation: fadeInUp 0.6s ease-out forwards; /* 속도 빠르게 */
+}
+
+.strength-item:nth-child(1) {
+    animation-delay: 0.1s;
+} /* 딜레이 줄임 */
+.strength-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.strength-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 카드와의 거리 더 줄이기 */
+.cards {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.cards-container {
+    position: relative;
+    width: 75%;
+    height: 70%; /* 높이 줄여서 공간 축소 */
+    margin-top: 2rem; /* 마진 줄임 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* 반응형에서도 거리 유지 */
+@media (max-width: 900px) {
+    .strengths-description {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: -10px;
+    }
+
+    .con1-1 {
+        padding: 3rem 1rem;
+        min-height: 30vh;
+        margin-top: -30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .strength-item {
+        padding: 1.5rem;
+        min-height: 200px;
+        max-width: 300px;
+    }
+
+    .con1-1 {
+        margin-top: -20px;
+        padding: 2.5rem 1rem;
+    }
+
+    .cards-container {
+        height: 60%;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .con1-1 {
+        margin-top: -10px;
+        padding: 2rem 1rem;
+    }
+
+    .strength-item {
+        min-height: 180px;
+        padding: 1.2rem;
+    }
+}
+/* ================== CON2 섹션 ================== */
+#con2.con2 {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+#con2 section {
+    position: relative;
+    width: 100vw;
+    height: 100svh;
+    background-color: var(--bg);
+    overflow: hidden;
+}
+
+/* 공통 헤더 스타일 */
+#con2 .header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    text-align: center;
+    z-index: 1;
+}
+
+#con2 .header h2 {
+    display: block;
+    margin-bottom: 2rem;
+    font-family: 'SoakUpTheSun', sans-serif;
+    font-size: clamp(4rem, 10vw, 6rem);
+    color: #6b5b47;
+}
+
+#con2 .header strong {
+    font-family: 'GyeonggiBatang', serif;
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: 500;
+    color: #6b5b47;
+}
+#con2 .header h3 {
+    display: block;
+    margin-bottom: 2rem;
+    font-family: 'GyeonggiBatang', serif;
+    font-size: clamp(4rem, 10vw, 6rem);
+    color: #ffffff;
+}
+#con2 .header p {
+    font-family: 'GyeonggiBatang', serif;
+    display: block;
+
+    line-height: 1.6;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* 레이아웃 섹션*/
+#con2 .intro,
+#con2 .profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 스포트라이트 섹션*/
+#con2 .spotlight .header h2 {
+    font-size: 5rem;
+}
+
+#con2 .spotlight .spotlight-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translateY(5%);
+    will-change: transform;
+}
+
+#con2 .spotlight .spotlight-images .row {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+}
+
+#con2 .spotlight .spotlight-images .row .img {
+    flex: 1;
+    aspect-ratio: 5/7;
+    overflow: hidden;
+}
+
+#con2 .spotlight .spotlight-images .row .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    filter: saturate(0);
+}
+
+/* 마스크 컨테이너 */
+#con2 .spotlight .mask-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100svh;
+    -webkit-mask: url(../assets/imgs/mask1.svg) center/contain no-repeat;
+    mask: url(../assets/imgs/mask1.svg) center/contain no-repeat;
+    -webkit-mask-size: 0%;
+    mask-size: 0%;
+    z-index: 10;
+    overflow: hidden;
+}
+
+#con2 .spotlight .mask-container .header h3 {
+    font-size: 2rem;
+    color: aliceblue;
+}
+
+/* 이미지 및 링크 스타일*/
+.con2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.75;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.con2 .link {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.7);
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+}
+
+.con2 .link a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.con2 i {
+    position: relative;
+    top: 1.5px;
+}
+
+/* 스타일 셀렉터 (UI 컨트롤)*/
+.con2-style-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+}
+
+/* 반응형 디자인*/
+@media (max-width: 768px) {
+    .con2-header {
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    .con2-header h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .con2-bg-text-large {
+        font-size: clamp(6rem, 15vw, 12rem);
+    }
+
+    #con2 .header {
+        width: 80%;
+    }
+
+    #con2 .header h2 {
+        font-size: clamp(3rem, 8vw, 5rem);
+    }
+
+    #con2 .spotlight .header h2 {
+        font-size: clamp(2.5rem, 7vw, 4rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .con2-header strong {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .con2-header h2 {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+
+    #con2 .header {
+        width: 90%;
+    }
+
+    #con2 .spotlight .spotlight-images .row {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .con2-style-selector {
+        top: 10px;
+        right: 10px;
+        gap: 5px;
+    }
+}
+/* con3 */
+
+.con3 {
+    font-family: 'GyeonggiBatang', serif;
+    line-height: 1.6;
+    position: relative;
+
+    /* 배경 적용 */
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+
+    padding-bottom: 50px;
+    z-index: 1;
+}
+
+/* 신비로운 배경 효과 */
+.con3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 30%, rgba(139, 117, 93, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 117, 93, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(232, 218, 207, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 별자리 패턴 배경 */
+.con3::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 25% 25%, #e8dacf 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, #8b735d 1px, transparent 1px),
+        radial-gradient(circle at 50% 10%, #e8dacf 0.5px, transparent 0.5px),
+        radial-gradient(circle at 10% 60%, #8b735d 0.5px, transparent 0.5px),
+        radial-gradient(circle at 90% 30%, #e8dacf 1px, transparent 1px);
+    background-size: 200px 200px, 150px 150px, 300px 300px, 250px 250px, 180px 180px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 1;
+    animation: twinkle 8s ease-in-out infinite;
+}
+
+/* 반짝임 애니메이션 */
+@keyframes twinkle {
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.1;
+    }
+}
+
+.con3 .inner {
+    width: 1000px;
+    height: 1000px;
+    margin: auto;
+    box-sizing: border-box;
+    position: relative;
+    padding: 150px 0;
+    z-index: 2; /* 배경 위에 표시 */
+}
+
+.con3 h2 {
+    font-size: 40px;
+    font-weight: 600;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.con3 .con-box {
+    padding-top: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+/* 카드 스타일*/
+.con3 .con-box article {
+    background: rgba(255, 255, 255, 0.85); /* 밝은 배경에 약간의 투명도 */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    width: 1200px;
+    height: 500px;
+    margin: auto;
+    margin-bottom: 35px;
+    color: #333; /* 어두운 텍스트로 가독성 향상 */
+    position: sticky;
+    top: 100px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+    overflow: hidden;
+    z-index: 2;
+}
+
+
+
+/* 호버 효과 추가 */
+.con3 .con-box article:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: rgba(255, 255, 255, 0.95); /* 호버시 더 선명 */
+    backdrop-filter: blur(20px);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+
+/* 제목 스타일 - 어두운 배경에 맞게 조정 */
+.con3 .con-box article strong {
+    display: block;
+    font-size: 30px;
+    font-weight: 600;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* 어두운 선으로 변경 */
+    margin-bottom: 30px;
+    
+    /* 기존 그라데이션을 어두운 톤으로 유지하되 대비를 높임 */
+    background: linear-gradient(45deg, #6b5b47 0%, #8b735d 50%, #4a3f32 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(139, 117, 93, 0.2);
+    letter-spacing: 1px;
+    position: relative;
+}
+
+/* 제목 아래 장식선도 어두운 톤으로 */
+.con3 .con-box article strong::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        rgba(107, 91, 71, 0.4),
+        rgba(139, 117, 93, 0.7),
+        rgba(107, 91, 71, 0.4)
+    );
+    border-radius: 1px;
+}
+
+/* 카드 내용 텍스트 스타일 - 어두운 색으로 */
+.con3 .card-content {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #444; /* 중간 명도의 텍스트로 가독성 확보 */
+    font-weight: 400; /* 약간 두껍게 */
+    letter-spacing: 0.3px;
+}
+
+.con3 .text-box {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+    width: 1800px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.con3 .text-box p {
+    font-size: 25px;
+    width: 800px;
+    margin-bottom: 30px;
+    line-height: 1.8;
+    background: rgba(232, 218, 207, 0.05);
+    border: 1px solid rgba(139, 117, 93, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    color: rgba(232, 218, 207, 0.9);
+}
+
+.con3 .text-box strong {
+    background: linear-gradient(45deg, #e8dacf 0%, #8b735d 50%, #6b5b47 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 28px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.con3 .text-box p:nth-child(1) {
+    margin-top: -350px;
+    margin-right: 50px;
+}
+
+.con3 .text-box p:nth-child(2) {
+    margin-right: 100px;
+}
+
+.con3 .text-box p:nth-child(3) {
+    margin-right: 150px;
+}
+/* article 내부를 flex로 변경 */
+.con3 .con-box article {
+    display: flex;
+    padding: 0;
+}
+
+/* 왼쪽 이미지 영역 */
+.con3 .project-image {
+    flex: 1;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 20px 0 0 20px;
+}
+
+.con3 .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, opacity 0.8s ease-in-out;
+}
+
+.con3 .con-box article:hover .project-image img {
+    transform: scale(1.05);
+}
+
+/* 오른쪽 정보 영역 */
+.con3 .project-info {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* 카테고리 스타일 */
+.con3 .project-category {
+    font-size: 14px;
+    color: #8b735d; /* 브랜드 컬러 유지 */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    font-weight: 600; /* 더 진하게 */
+}
+
+/* 프로젝트 상세 정보 */
+.con3 .project-details {
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.con3 .project-details h4 {
+    font-size: 16px;
+    color: #555; /* 중간 명도의 텍스트 */
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+
+.con3 .project-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.con3 .project-details li {
+    background: rgba(139, 117, 93, 0.15); /* 더 연한 배경 */
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    color: #5a4a3a; /* 어두운 브라운 텍스트 */
+    border: 1px solid rgba(139, 117, 93, 0.3);
+    font-weight: 500;
+}
+
+/* 버튼 스타일 */
+.con3 .project-links {
+    display: flex;
+    gap: 15px;
+}
+
+.con3 .project-btn {
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(139, 117, 93, 0.4);
+    background: rgba(139, 117, 93, 0.1);
+    color: #5a4a3a; /* 어두운 브라운 텍스트 */
+}
+
+
+.con3 .project-btn.primary {
+    background: linear-gradient(45deg, #8b735d, #6b5b47);
+    color: #fff;
+    border: none;
+}
+
+.con3 .project-btn:hover {
+    background: rgba(139, 117, 93, 0.25);
+    border-color: rgba(139, 117, 93, 0.6);
+    transform: translateY(-2px);
+    color: #4a3f32;
+}
+
+/* con3 profile */
+.profile {
+    background-color: #e8dacf;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 프로필 섹션 내부 배경 이미지 */
+.profile .bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* con3-box를 배경 이미지 위로 */
+.profile .con3-box {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* 이미지 컨테이너 - 크기 조정 */
+.profile .profile-img {
+    flex: 0 0 420px;
+    width: 420px;
+    height: 510px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.profile .profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+}
+
+/* overlay 이미지 스타일 */
+.profile .profile-img .profile-img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* 정보 영역 */
+.profile .profile-info {
+    position: relative;
+    z-index: 1;
+}
+
+
+
+.profile strong {
+    display: block;
+    font-family: 'SoakUpTheSun', sans-serif;
+    font-size: 2rem;
+    
+    letter-spacing: 1.5px;
+    color: #8b735d;
+}
+
+.profile strong::before {
+    content: '✦';
+    color: #8b735d;
+    margin-right: 8px;
+}
+
+.profile .card-content {
+    font-family: 'GyeonggiBatang', serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #0f3460;
+    width: 600px;
+    margin-bottom: 1rem;
+}
+/* con4 */
+.con4 {
+    /* background-image: url('../assets/imgs/sami_bg.png'); */
+    background-image: url('../assets/imgs/sami_bg.png');
+    position: relative;
+    padding: 100px 0;
+}
+
+.con4 .works {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 왼쪽 텍스트 영역 */
+.con4 .title {
+     color: #1a2335;
+    flex: 0 0 35%;
+    position: sticky;
+    top: 300px;
+    align-self: flex-start;
+    font-family: 'GyeonggiBatang', serif;
+}
+
+.con4 .title h2 {
+    font-size: 8rem;
+    font-family: 'SoakUpTheSun', sans-serif;
+    line-height: 0.8;
+    /* height 제거 */
+}
+
+.con4 .title h2 span {
+    font-family: 'GyeonggiBatang', serif;
+ 
+    font-weight: 300;
+    font-size: 1.4rem;
+}
+
+/* 오른쪽 리스트 영역 */
+.con4 .list {
+    flex: 1; /* 남은 공간 차지 */
+    transform: translateY(0);
+}
+.con4 .list li {
+    margin-bottom: 80px;
+}
+.con4 .list .pic {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.con4 .list .pic img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+/* 이미지 호버 효과 추가 */
+.con4 .list .pic {
+    position: relative;
+    overflow: hidden;
+}
+
+.con4 .list .pic a {
+    display: block;
+    position: relative;
+}
+
+/* 호버 시 어두워지는 오버레이 */
+.con4 .list .pic a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s ease;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.con4 .list .pic a:hover::before {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* 화살표 아이콘 - 중앙 배치 */
+.con4 .list .pic a::after {
+    content: 'VIEW PROJECT';
+    font-family: 'GyeonggiBatang', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+
+    color: white;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 2;
+
+    padding: 15px 35px;
+    border: 2px solid white;
+    background-color: transparent;
+}
+
+.con4 .list .pic a:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+.con4 .list .pic a:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateX(5px);
+}
+
+/* 호버 시 이미지 살짝 확대 (선택사항) */
+.con4 .list .pic img {
+    transition: transform 0.3s ease;
+}
+
+.con4 .list .pic a:hover img {
+    transform: scale(1.05);
+}
+.con4 .list p {
+    font-family: 'GyeonggiBatang', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 40px;
+    line-height: 1.5;
+}
+
+/* con5 취미 */
+
+/* ================== CON5 섹션 ================== */
+.con5 {
+    position: relative;
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-image: url('/assets/imgs/hobby_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.con5::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 1;
+}
+
+.con5 .site-info {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+/* 타이틀 영역 - 가로 정렬 */
+.con5 .site-info .row:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 4rem; /* 4rem 간격 */
+    margin-bottom: 4rem;
+}
+
+.con5 .text h2 {
+    font-size: 12rem;
+    font-weight: 700;
+    font-family: 'GyeonggiBatang', serif;
+    color: transparent;
+    -webkit-text-stroke: 3px #1a2335;
+    -webkit-background-clip: text;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+    line-height: 1;
+    margin: 0;
+}
+
+.con5 .site-info .row:first-child .col strong {
+    display: inline-block;
+    font-size: 10rem;
+    font-family: 'SoakUpTheSun', cursive;
+    color: #1a2335;
+    position: relative;
+    z-index: 2;
+    line-height: 1;
+    margin: 0;
+}
+
+/* 취미 정보 스타일 - 박스 처리 제거 */
+.con5 .Hobbies {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.con5 .Hobbies .line {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.con5 .Hobbies p {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-family: 'GyeonggiBatang', serif;
+    line-height: 1.6;
+    color: #1a2335;
+    padding: 0.5rem 0;
+    margin: 0;
+    background: none; /* 박스 배경 제거 */
+    box-shadow: none; /* 그림자 제거 */
+    border: none; /* 테두리 제거 */
+    transition: all 0.3s ease;
+}
+
+.con5 .Hobbies p:hover {
+    transform: translateY(-2px);
+    color: #2d3748;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1200px) {
+    .con5 .text h2 {
+        font-size: 10rem;
+    }
+
+    .con5 .site-info .row:first-child .col strong {
+        font-size: 8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .con5 {
+        height: 600px; /* 모바일에서는 높이 줄임 */
+        padding: 1rem;
+    }
+
+    .con5 .site-info .row:first-child {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .con5 .text h2 {
+        font-size: 6rem;
+    }
+
+    .con5 .site-info .row:first-child .col strong {
+        font-size: 5rem;
+    }
+
+    .con5 .Hobbies p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .con5 {
+        height: 500px;
+    }
+
+    .con5 .text h2 {
+        font-size: 4rem;
+    }
+
+    .con5 .site-info .row:first-child .col strong {
+        font-size: 3.5rem;
+    }
+
+    .con5 .Hobbies p {
+        font-size: 1rem;
+    }
+
+    .con5 .Hobbies {
+        gap: 0.5rem;
+    }
+}
+
+/* footer */
+
+.footer {
+    font-family: 'GyeonggiBatang', serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    padding: 60px 0 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+/* 나머지 스타일은 동일하게 유지 */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.footer-info {
+    text-align: center;
+}
+
+.footer-info h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, #fff, #a8a8a8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-info p {
+    color: #ccc;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.contact-item:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.contact-item i {
+    font-size: 1.2rem;
+    color: #8a9bb8;
+    transition: color 0.3s ease;
+    width: 20px;
+    text-align: center;
+}
+
+.contact-item:hover i {
+    color: #fff;
+}
+
+.contact-item span {
+    color: #b8c2d6;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+}
+
+.contact-item:hover span {
+    color: #fff;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #8a9bb8;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .footer {
+        padding: 40px 0 20px;
+    }
+
+    .footer-container {
+        padding: 0 1rem;
+    }
+
+    .footer-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .contact-info {
+        gap: 0.8rem;
+    }
+
+    .contact-item {
+        padding: 0.4rem 0.8rem;
+    }
+}
+/* ================== 공통 섹션 스타일 ================== */
+section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+/* ================== 반응형 ================== */
+@media (max-width: 1024px) {
+    .visual h2 {
+        font-size: 12vw;
+    }
+    .visual p {
+        font-size: 1.6rem;
+    }
+    #con2 .spotlight .spotlight-images {
+        width: 200vw;
+        left: -25vw;
+    }
+    .pop-menu .menu__right a {
+        font-size: 2vh;
+    }
+    .pop-menu .menu__left a {
+        font-size: 16vw;
+    }
+}
+
+@media (max-width: 768px) {
+    #main {
+        padding: 1rem;
+    }
+
+    .intro-text {
+        margin-bottom: 3rem;
+    }
+
+    .bottom-bar {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .main-title {
+        margin-bottom: 1rem;
+    }
+
+    .subtitle {
+        margin-bottom: 2rem;
+    }
+
+    .visual h2 {
+        font-size: 15vw;
+    }
+    .visual p {
+        font-size: 1.2rem;
+    }
+
+    .con1,
+    .con1-1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    #con2 .header h2 {
+        font-size: 2.5rem;
+    }
+    #con2 .header p {
+        font-size: 0.9rem;
+    }
+}

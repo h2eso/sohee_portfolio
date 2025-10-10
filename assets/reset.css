@@ -166,8 +166,47 @@ img {
 @font-face {
     font-family: 'SoakUpTheSun'; /* 내가 원하는 이름으로 지정 */
     src: url('./fonts/Soak\ Up\ The\ Sun\ Script.otf') format('opentype');
-    src: url('./fonts/Soak\ Up\ The\ Sun\ Script\ -\ Bold.otf') format('opentype');
-
-    font-weight: normal;
+   
     font-style: normal;
 }
+
+/* 경기바탕 */
+@font-face {
+    font-family: 'GyeonggiBatang';
+    src: url('./fonts/GyeonggiBatang_OTF_Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GyeonggiBatang';
+    src: url('./fonts/GyeonggiBatang_OTF_Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* 경기타이틀 */
+@font-face {
+    font-family: 'GyeonggiTitle';
+    src: url('./fonts/Gyeonggititle_OTF_Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GyeonggiTitle';
+    src: url('./fonts/Gyeonggititle_OTF_Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GyeonggiTitle';
+    src: url('./fonts/Gyeonggititle_OTF_Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GyeonggiTitle';
+    src: url('./fonts/Gyeonggititle_OTFV_Bold.otf') format('opentype');
+    font-weight: 800; /* 더 두꺼운 Bold라면 */
+    font-style: normal;
+}
+
